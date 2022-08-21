@@ -47,74 +47,117 @@ a {
 ul {
   list-style: none; }
 
-.section1,
-.section2 {
-  border-bottom: 1px solid #c1c1c1;
-  overflow: auto; }
-
-.section1 {
-  background-color: #eaeaea; }
-
-.section2 {
-  background-color: #fff; }
-
-.main-container {
+.section__container {
   width: 95%;
   margin: 0 auto; }
 
-.greeting-wrapper {
+.section--ecru {
+  background-color: #eaeaea; }
+
+.section--white {
+  background-color: #fff; }
+
+.greeting {
   display: grid;
   justify-content: center;
   align-content: center;
   text-align: center;
   min-height: 10em; }
 
-.intro-wrapper {
+.intro {
   background-color: #fff;
   border: 1px solid #c1c1c1;
   border-radius: 5px 5px 0;
   box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 3em 20em;
-  grid-template-areas: "nav-wrapper nav-wrapper" "left-column right-column"; }
+  grid-template-columns: 1fr;
+  grid-template-areas: "nav-wrapper" "left-column" "right-column"; }
+  .intro__nav {
+    grid-area: nav-wrapper;
+    border-bottom: 1px solid #c1c1c1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10px; }
+  .intro .navigation {
+    margin: 0;
+    padding: 10px; }
+    .intro .navigationItem {
+      display: inline-block; }
 
-.nav-wrapper {
-  grid-area: nav-wrapper;
-  border-bottom: 1px solid #c1c1c1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-inline: 10px; }
-
-.dots-wrapper {
+.browser-dots {
   display: flex; }
-  .dots-wrapper #dot1 {
+  .browser-dots__dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 5px; }
+  .browser-dots #dot1 {
     background-color: #fc6058; }
-  .dots-wrapper #dot2 {
+  .browser-dots #dot2 {
     background-color: #fec02f; }
-  .dots-wrapper #dot3 {
+  .browser-dots #dot3 {
     background-color: #2aca3e; }
 
-.navigation {
-  margin: 0;
-  padding: 10px; }
-  .navigationItem {
-    display: inline-block; }
-
-.browser-dot {
-  background-color: #000;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin: 5px; }
-
 .left-column {
-  grid-area: left-column; }
+  grid-area: left-column;
+  padding-block: 50px; }
+  .left-column__image {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #c1c1c1; }
+  .left-column .theme-dots {
+    display: flex;
+    justify-content: center; }
+    .left-column .theme-dots__dot {
+      margin-inline: 5px;
+      background-color: #000;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+      cursor: pointer;
+      border: 2px solid #24292e; }
+      .left-column .theme-dots__dot:hover {
+        border-width: 5px; }
+      .left-column .theme-dots__dot#light-mode {
+        background-color: #fff; }
+      .left-column .theme-dots__dot#blue-mode {
+        background-color: #192734; }
+      .left-column .theme-dots__dot#green-mode {
+        background-color: #78866b; }
+      .left-column .theme-dots__dot#purple-mode {
+        background-color: #7e4c74; }
+    .left-column .theme-dots__settings-note {
+      font-size: 12px;
+      font-style: italic;
+      text-align: center; }
 
 .right-column {
-  grid-area: right-column; }
+  grid-area: right-column;
+  display: grid;
+  justify-content: center;
+  padding-block: 50px; }
+  .right-column .preview {
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    border: 1.5px solid #17a2b8;
+    background-color: rgba(251, 249, 243, 0.8);
+    padding: 15px;
+    box-shadow: 30px -22px 1px -5px #f0ead6; }
 
 @media screen and (min-width: 1200px) {
-  .main-container {
+  .section__container {
     width: 1200px; } }
+
+@media screen and (min-width: 800px) {
+  .intro {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "nav-wrapper nav-wrapper" "left-column right-column"; }
+    .intro .right-column {
+      justify-content: left;
+      align-content: center; } }

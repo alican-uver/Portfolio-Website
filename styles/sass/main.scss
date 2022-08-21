@@ -1,80 +1,20 @@
 @import "abstract/variables";
+@import "global-variables";
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong {
-  color: $mainText;
-  font-family: "Russo One", sans-serif;
-  font-weight: 500;
+.section {
+  &__container {
+    width: 95%;
+    margin: 0 auto;
+  }
+  &--ecru {
+    background-color: $mainColor;
+  }
+  &--white {
+    background-color: $secondaryColor;
+  }
 }
 
-p,
-li,
-span,
-label,
-input,
-textarea {
-  color: $secondaryText;
-  font-family: "Roboto", sans-serif;
-}
-
-h1 {
-  font-size: 56px;
-}
-h2 {
-  font-size: 36px;
-}
-h3 {
-  font-size: 28px;
-}
-h4 {
-  font-size: 24px;
-}
-h5 {
-  font-size: 20px;
-}
-h6 {
-  font-size: 16px;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-.section1,
-.section2 {
-  border-bottom: 1px solid $borderColor;
-  overflow: auto;
-}
-
-.section1 {
-  background-color: $mainColor;
-}
-
-.section2 {
-  background-color: $secondaryColor;
-}
-
-.main-container {
-  width: 95%;
-  margin: 0 auto;
-}
-
-.greeting-wrapper {
+.greeting {
   display: grid;
   justify-content: center;
   align-content: center;
@@ -82,30 +22,42 @@ ul {
   min-height: 10em;
 }
 
-.intro-wrapper {
+.intro {
   background-color: $secondaryColor;
   border: 1px solid $borderColor;
   border-radius: 5px 5px 0;
   box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 3em 20em;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "nav-wrapper nav-wrapper"
-    "left-column right-column";
+    "nav-wrapper"
+    "left-column"
+    "right-column";
+  &__nav {
+    grid-area: nav-wrapper;
+    border-bottom: 1px solid $borderColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10px;
+  }
+  .navigation {
+    margin: 0;
+    padding: 10px;
+    &Item {
+      display: inline-block;
+    }
+  }
 }
 
-.nav-wrapper {
-  grid-area: nav-wrapper;
-  border-bottom: 1px solid $borderColor;
+.browser-dots {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-inline: 10px;
-}
-
-.dots-wrapper {
-  display: flex;
+  &__dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 5px;
+  }
   #dot1 {
     background-color: #fc6058;
   }
@@ -117,32 +69,85 @@ ul {
   }
 }
 
-.navigation {
-  margin: 0;
-  padding: 10px;
-  &Item {
-    display: inline-block;
-  }
-}
-
-.browser-dot {
-  background-color: $blackColor;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin: 5px;
-}
-
 .left-column {
   grid-area: left-column;
+  padding-block: 50px;
+  &__image {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid $borderColor;
+  }
+  .theme-dots {
+    display: flex;
+    justify-content: center;
+    &__dot {
+      margin-inline: 5px;
+      background-color: $blackColor;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
+      cursor: pointer;
+      border: 2px solid $themeDotBorder;
+      &:hover {
+        border-width: 5px;
+      }
+      &#light-mode {
+        background-color: #fff;
+      }
+      &#blue-mode {
+        background-color: #192734;
+      }
+      &#green-mode {
+        background-color: #78866b;
+      }
+      &#purple-mode {
+        background-color: #7e4c74;
+      }
+    }
+    &__settings-note {
+      font-size: 12px;
+      font-style: italic;
+      text-align: center;
+    }
+  }
 }
 
 .right-column {
   grid-area: right-column;
+  display: grid;
+  justify-content: center;
+  padding-block: 50px;
+  .preview {
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    border: 1.5px solid #17a2b8;
+    background-color: $previewBackground;
+    padding: 15px;
+    box-shadow: 30px -22px 1px -5px #f0ead6;
+  }
 }
 
+// Responsive Media Tags
 @media screen and (min-width: 1200px) {
-  .main-container {
+  .section__container {
     width: 1200px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .intro {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "nav-wrapper nav-wrapper"
+      "left-column right-column";
+      .right-column {
+        justify-content: left;
+        align-content: center;
+      }
   }
 }
