@@ -16,6 +16,7 @@
   }
 }
 
+// SECTION GREETING
 .greeting {
   display: grid;
   justify-content: center;
@@ -151,6 +152,7 @@
   }
 }
 
+// SECTION ABOUT ME
 .about-me {
   &__container {
     width: 95%;
@@ -181,15 +183,64 @@
     margin-block: 20px;
     display: flex;
     justify-content: center;
+
     a {
       display: flex;
+
       &:hover {
         text-decoration: underline;
       }
     }
+
     img {
       width: 30px;
       padding-inline: 10px;
+    }
+  }
+}
+
+// SECTION SOME PROJECTS
+.some-projects {
+  width: 95%;
+  margin: 0 auto;
+  &__title {
+    color: red;
+    text-align: center;
+  }
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  place-items: center;
+  gap: 20px;
+
+  .project-card {
+    min-height: 410px;
+    border-radius: 5px;
+    box-shadow: -1px 0px 14px -3px rgba(0, 0, 0, 0.75);
+
+    &__image {
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    &__info {
+      padding: 20px;
+    }
+
+    &__title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    &__description {
+      min-height: 60px;
+    }
+
+    &__link {
+      font-weight: 600;
     }
   }
 }
@@ -201,6 +252,10 @@
   }
 
   .about-me__container {
+    width: 1200px;
+  }
+
+  .some-projects {
     width: 1200px;
   }
 }
