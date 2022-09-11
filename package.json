@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "node-sass styles/sass/main.scss styles/css/style.css -w"
-    },
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

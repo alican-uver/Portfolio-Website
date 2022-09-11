@@ -3,6 +3,9 @@ body {
   margin: 0;
   padding: 0; }
 
+ul {
+  padding-inline: 0; }
+
 h1,
 h2,
 h3,
@@ -150,8 +153,41 @@ ul {
     padding: 15px;
     box-shadow: 30px -22px 1px -5px #f0ead6; }
 
+.about-me__container {
+  width: 95%;
+  margin: 0 auto; }
+
+.about-me__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding-block: 50px; }
+
+.about-me__skills {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f0ead6; }
+
+.social-links__image {
+  width: 100%;
+  object-fit: cover; }
+
+.social-links__link {
+  margin-block: 20px;
+  display: flex;
+  justify-content: center; }
+  .social-links__link a {
+    display: flex; }
+    .social-links__link a:hover {
+      text-decoration: underline; }
+  .social-links__link img {
+    width: 30px;
+    padding-inline: 10px; }
+
 @media screen and (min-width: 1200px) {
   .section__container {
+    width: 1200px; }
+  .about-me__container {
     width: 1200px; } }
 
 @media screen and (min-width: 800px) {
